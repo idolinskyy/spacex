@@ -1,3 +1,27 @@
 .output {
   grid-area: output;
+  border: 1px solid #000000;
+  padding: 1em;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+.output__company {
+  margin: 0;
+  font-weight: 700;
+}
+
+.output__mail {
+  display: inline-block;
+  margin-top: 0.5em;
+}
+
+.output__result span {
+  font-weight: 700;
+}
+
+.output input {
+  border-radius: 0.3em;
+  border-width: 2px;
+  font-size: 1.1em;
+  padding: 0.1em 0.3em;
 }

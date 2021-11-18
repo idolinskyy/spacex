@@ -1,3 +1,4 @@
+import './CompanyItem.css';
 export function CompanyItem(props) {
   const { id, name, clickLink } = props;
   return (

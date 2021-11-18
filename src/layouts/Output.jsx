@@ -1,39 +1,32 @@
-import { Component } from 'react';
-import './Output.css'
+import React, { useEffect, useState } from 'react';
+import './Output.css';
 
-export class Output extends Component {
-  state = {
-    boxes: '',
-    count: 0,
+export function Output(props) {
+  const [boxes, setBoxes] = useState('');
+  const [count, setCount] = useState(0);
+
+  const { name, email } = props.company;
+
+  useEffect(() => {
+    setBoxes(props.company.boxes);
+  }, [props.company.boxes]);
+
+  const boxesChange = (event) => {
+    setBoxes(event.target.value);
+    //TODO: algo!!!
   };
 
-  componentDidMount() {
-    this.setState({ boxes: this.props.company.boxes });
-  }
-
-  boxesChange = (event) => {
-    this.setState({ boxes: event.target.value });
-  };
-
-  render() {
-    const { name, email } = this.props.company;
-
-    return (
-      <div className='output'>
-        <h1 className='output__company'>{name}</h1>
-        <a href={`mailto:${email}`} className='output__mail'>
-          {email}
-        </a>
-        <p className='output__result'>
-          Number of required cargo bays <span>{this.state.count}</span>
-        </p>
-        <p className='output__caption'>Cargo boxes</p>
-        <input
-          type='text'
-          value={this.state.boxes}
-          onChange={this.boxesChange}
-        />
-      </div>
-    );
-  }
+  return (
+    <div className='output'>
+      <h1 className='output__company'>{name}</h1>
+      <a href={`mailto:${email}`} className='output__mail'>
+        {email}
+      </a>
+      <p className='output__result'>
+        Number of required cargo bays <span>{count}</span>
+      </p>
+      <p className='output__caption'>Cargo boxes</p>
+      <input type='text' value={boxes} onChange={boxesChange} />
+    </div>
+  );
 }

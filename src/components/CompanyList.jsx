@@ -1,4 +1,5 @@
 import { CompanyItem } from './CompanyItem';
+import './CompanyList.css';
 
 export function CompanyList(props) {
   const { list = [], clickLink } = props;
@@ -10,7 +11,7 @@ export function CompanyList(props) {
           <CompanyItem key={item.id} clickLink={clickLink} {...item} />
         ))
       ) : (
-        <h4>Ничего не найдено :(</h4>
+        <h4> No matches found ... &#128543; Try again</h4>
       )}
     </ul>
   );
