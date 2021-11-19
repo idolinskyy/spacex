@@ -15,7 +15,9 @@ export function Output(props) {
 
   return (
     <div className='output'>
-      <h1 className='output__company'>{name}</h1>
+      <h1 className='output__company'>
+        {name || 'Please select a company...'}
+      </h1>
       <a href={`mailto:${email}`} className='output__mail'>
         {email}
       </a>
@@ -24,7 +26,13 @@ export function Output(props) {
         <span title={displayCargos(cargoBays)}>{cargoBays?.length || 0}</span>
       </p>
       <p className='output__caption'>Cargo boxes</p>
-      <input type='text' value={boxes} onChange={props.resetBoxes} />
+      <input
+        type='text'
+        value={boxes}
+        onChange={props.resetBoxes}
+        onInput={props.checkInput}
+      />
+      <p className='output__error'>{cargoBays?.error || ''}</p>
     </div>
   );
 }

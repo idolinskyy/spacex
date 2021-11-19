@@ -5,8 +5,10 @@ export const calculateCargoBays = (allBoxes = [], maxCapacity = 10) => {
   if (!boxes.length) return [];
 
   if (boxes[boxes.length - 1] > maxCapacity) {
-    throw Error('One or more crates will not fit in the cargo hold!');
+    cargoBays.error = 'One or more boxes will not fit in the cargo hold!';
+    return cargoBays;
   }
+
   while (boxes.length) {
     const cargo = [boxes.pop()];
 

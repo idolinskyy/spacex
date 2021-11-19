@@ -2,7 +2,8 @@
   grid-area: header;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
   gap: 1em;
   background-color: #b9b5b5;
   border: 1px solid #000000;
@@ -24,4 +25,37 @@
 .header__logo {
   font-size: 1.5em;
   font-weight: bold;
+}
+
+.header__wrapper {
+  min-width: 15em;
+  display: flex;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 952px) {
+  .header {
+    padding-left: 0;
+  }
+  .header__wrapper {
+    min-width: 9em;
+  }
+  .header__logo {
+    display: none;
+  }
+  .header__button {
+    width: 5em;
+    min-height: 2em;
+    font-size: 0.8em;
+  }
+}
+
+@media screen and (max-width: 352px) {
+  .header__wrapper {
+    flex-direction: column;
+    min-width: auto;
+  }
+  .header__button {
+    width: 6em;
+  }
 }

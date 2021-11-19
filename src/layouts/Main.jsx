@@ -23,6 +23,7 @@ export class Main extends Component {
         allList: data,
         isLoad: !!data.length,
         currentCompany: data[0],
+        cargoBays: calculateCargoBays(data[0]?.boxes?.split(',') || []),
       });
     }
   }
@@ -38,6 +39,7 @@ export class Main extends Component {
           allList: data,
           isLoad: data.length,
           currentCompany: data[0],
+          cargoBays: calculateCargoBays(data[0]?.boxes?.split(',') || []),
         });
         localStorage.setItem('spacex-data', JSON.stringify(data));
       })
@@ -53,6 +55,8 @@ export class Main extends Component {
       return item.id === e.target.id;
     })[0];
 
+    window.history.pushState({ path: e.target.href }, '', e.target.href);
+
     this.setState((state, props) => ({
       currentCompany: currCompany,
       cargoBays: calculateCargoBays(currCompany.boxes?.split(',') || []),
@@ -64,6 +68,7 @@ export class Main extends Component {
       list: this.state.allList.filter((item) =>
         item.name.toLowerCase().includes(e.target.value.toLowerCase()),
       ),
+      currentCompany: [],
     });
   };
 
@@ -76,6 +81,10 @@ export class Main extends Component {
     }));
   };
 
+  onCheckInput = (event) => {
+    event.target.value = event.target.value.replace(/[^ ,.0-9]/g, '');
+  };
+
   saveLocal = () => {
     localStorage.setItem('spacex-data', JSON.stringify(this.state.allList));
   };
@@ -83,28 +92,32 @@ export class Main extends Component {
   render() {
     const { list } = this.state;
     return (
-      <main className='main'>
-        <Header
-          loadClick={this.loadFromJSON}
-          saveClick={this.saveLocal}
-          changeFilter={this.changeFilter}></Header>
-        <Side
-          list={list}
-          clickLink={this.clickLink}
-          isLoad={this.state.isLoad}></Side>
-        {list.length ? (
-          <Output
-            company={this.state.currentCompany}
-            resetBoxes={this.onResetBoxes}
-            cargoBays={this.state.cargoBays}></Output>
-        ) : (
-          <h3 className='main__no-data'>
-            Local data not found ...
-            <br />
-            Please click "Load" to load data from server.
-          </h3>
-        )}
-      </main>
+      <>
+        <main className='main'>
+          <Header
+            loadClick={this.loadFromJSON}
+            saveClick={this.saveLocal}
+            changeFilter={this.changeFilter}></Header>
+          <Side
+            list={list}
+            clickLink={this.clickLink}
+            isLoad={this.state.isLoad}></Side>
+          {list.length ? (
+            <Output
+              company={this.state.currentCompany}
+              resetBoxes={this.onResetBoxes}
+              checkInput={this.onCheckInput}
+              cargoBays={this.state.cargoBays}></Output>
+          ) : (
+            <h3 className='main__no-data'>
+              {!this.state.isLoad
+                ? "Local data not found ...Please click 'Load' to load data from server."
+                : ''}
+            </h3>
+          )}
+        </main>
+        <div className='error-info'>Maybe we should not?</div>
+      </>
     );
   }
 }

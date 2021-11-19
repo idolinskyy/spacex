@@ -1,10 +1,14 @@
 .filter {
   display: flex;
   border: 1px solid #000000;
-  min-width: 300px;
+  width: 42vw;
   padding: 0.5em;
   border-radius: 1.5em;
   background-color: #ffffff;
+}
+
+.filter:hover {
+  box-shadow: 0.1em 0.1em 0.3em #000000;
 }
 
 .filter__input {
@@ -15,6 +19,13 @@
   padding: 0.3em 0.5em;
 }
 
-.filter__icon {
-  /* position: absolute; */
+.filter span {
+  cursor: default;
+  user-select: none;
+}
+
+@media screen and (max-width: 952px) {
+  .filter {
+    min-width: 100px;
+  }
 }

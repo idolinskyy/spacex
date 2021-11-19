@@ -2,3 +2,19 @@
   list-style-type: none;
   padding: 0 0.3em 0 1em;
 }
+
+@media screen and (max-width: 952px) {
+  .company-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+}
+
+@media screen and (max-width: 364px) {
+  .company-list {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    flex-direction: column;
+  }
+}

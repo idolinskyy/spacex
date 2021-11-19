@@ -7,8 +7,33 @@
     'side   output';
 }
 
+.error-info {
+  display: none;
+}
+
 .main__no-data {
   font-size: 2em;
   font-weight: 700;
   padding-left: 1em;
+}
+
+@media screen and (max-width: 952px) {
+  .main {
+    display: grid;
+    grid-template-rows: 4em 10em calc(100vh - 14em);
+    grid-template-columns: auto;
+    grid-template-areas:
+      'header header'
+      'side   side'
+      'output output';
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .main {
+    display: none;
+  }
+  .error-info {
+    display: block;
+  }
 }

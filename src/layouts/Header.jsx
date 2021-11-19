@@ -8,12 +8,14 @@ export function Header(props) {
     <div className='header'>
       <span className='header__logo'>Cargo Planner</span>
       <Filter changeFilter={changeFilter}></Filter>
-      <button className='header__button' onClick={loadClick}>
-        Load
-      </button>
-      <button className='header__button' onClick={saveClick}>
-        Save
-      </button>
+      <div className='header__wrapper'>
+        <button className='header__button' onClick={loadClick}>
+          Load
+        </button>
+        <button className='header__button' onClick={saveClick}>
+          Save
+        </button>
+      </div>
     </div>
   );
 }
