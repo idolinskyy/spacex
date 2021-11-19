@@ -6,3 +6,9 @@
     'header header'
     'side   output';
 }
+
+.main__no-data {
+  font-size: 2em;
+  font-weight: 700;
+  padding-left: 1em;
+}

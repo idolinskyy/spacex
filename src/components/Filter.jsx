@@ -7,7 +7,7 @@ export function Filter(props) {
       <input
         className='filter__input'
         type='text'
-        name=''
+        placeholder='Company filter'
         onChange={props.changeFilter}
       />
     </div>

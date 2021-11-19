@@ -1,20 +1,17 @@
 import React, { useEffect, useState } from 'react';
+import { displayCargos } from '../lib/util';
+
 import './Output.css';
 
 export function Output(props) {
   const [boxes, setBoxes] = useState('');
-  const [count, setCount] = useState(0);
 
   const { name, email } = props.company;
+  const { cargoBays } = props;
 
   useEffect(() => {
-    setBoxes(props.company.boxes);
+    setBoxes(props.company.boxes || '');
   }, [props.company.boxes]);
-
-  const boxesChange = (event) => {
-    setBoxes(event.target.value);
-    //TODO: algo!!!
-  };
 
   return (
     <div className='output'>
@@ -23,10 +20,11 @@ export function Output(props) {
         {email}
       </a>
       <p className='output__result'>
-        Number of required cargo bays <span>{count}</span>
+        Number of required cargo bays{' '}
+        <span title={displayCargos(cargoBays)}>{cargoBays?.length || 0}</span>
       </p>
       <p className='output__caption'>Cargo boxes</p>
-      <input type='text' value={boxes} onChange={boxesChange} />
+      <input type='text' value={boxes} onChange={props.resetBoxes} />
     </div>
   );
 }

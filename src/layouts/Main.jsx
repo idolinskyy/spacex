@@ -2,15 +2,17 @@ import { Component } from 'react';
 import { Header } from './Header';
 import { Output } from './Output';
 import { Side } from './Side';
+import { calculateCargoBays } from '../lib/algo';
 
 import './Main.css';
 
 export class Main extends Component {
   state = {
-    total: 0,
+    isLoad: false,
     list: [],
     allList: [],
     currentCompany: {},
+    cargoBays: [],
   };
 
   componentDidMount() {
@@ -19,7 +21,7 @@ export class Main extends Component {
       this.setState({
         list: data,
         allList: data,
-        total: data.length,
+        isLoad: !!data.length,
         currentCompany: data[0],
       });
     }
@@ -34,7 +36,8 @@ export class Main extends Component {
         this.setState({
           list: data,
           allList: data,
-          total: data.length,
+          isLoad: data.length,
+          currentCompany: data[0],
         });
         localStorage.setItem('spacex-data', JSON.stringify(data));
       })
@@ -45,22 +48,37 @@ export class Main extends Component {
 
   clickLink = (e) => {
     e.preventDefault();
-    this.setState({
-      currentCompany: this.state.list.filter((item, i) => {
-        return item.id === e.target.id;
-      })[0],
-    });
+
+    const currCompany = this.state.list.filter((item, i) => {
+      return item.id === e.target.id;
+    })[0];
+
+    this.setState((state, props) => ({
+      currentCompany: currCompany,
+      cargoBays: calculateCargoBays(currCompany.boxes?.split(',') || []),
+    }));
   };
 
   changeFilter = (e) => {
     this.setState({
       list: this.state.allList.filter((item) =>
-        item.name.includes(e.target.value),
+        item.name.toLowerCase().includes(e.target.value.toLowerCase()),
       ),
     });
   };
 
-  saveLocal = () => {};
+  onResetBoxes = (event) => {
+    const currCompany = this.state.currentCompany;
+    currCompany.boxes = event.target.value;
+    this.setState((state, props) => ({
+      currentCompany: currCompany,
+      cargoBays: calculateCargoBays(currCompany.boxes.split(',')),
+    }));
+  };
+
+  saveLocal = () => {
+    localStorage.setItem('spacex-data', JSON.stringify(this.state.allList));
+  };
 
   render() {
     const { list } = this.state;
@@ -70,8 +88,22 @@ export class Main extends Component {
           loadClick={this.loadFromJSON}
           saveClick={this.saveLocal}
           changeFilter={this.changeFilter}></Header>
-        <Side list={list} clickLink={this.clickLink}></Side>
-        <Output company={this.state.currentCompany}></Output>
+        <Side
+          list={list}
+          clickLink={this.clickLink}
+          isLoad={this.state.isLoad}></Side>
+        {list.length ? (
+          <Output
+            company={this.state.currentCompany}
+            resetBoxes={this.onResetBoxes}
+            cargoBays={this.state.cargoBays}></Output>
+        ) : (
+          <h3 className='main__no-data'>
+            Local data not found ...
+            <br />
+            Please click "Load" to load data from server.
+          </h3>
+        )}
       </main>
     );
   }
