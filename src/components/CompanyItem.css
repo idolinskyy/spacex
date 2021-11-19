@@ -5,5 +5,18 @@
 .company-item__link {
   display: inline-block;
   color: #050388;
-  padding: 0.3em 0;
+  padding: 0.5em 0;
+}
+
+@media screen and (max-width: 952px) {
+  .company-item {
+    min-width: 20em;
+    min-height: 2em;
+  }
+}
+
+@media screen and (max-width: 364px) {
+  .company-item {
+    font-size: 0.7em;
+  }
 }

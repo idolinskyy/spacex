@@ -11,7 +11,7 @@ export function CompanyList(props) {
           <CompanyItem key={item.id} clickLink={clickLink} {...item} />
         ))
       ) : (
-        <h4> {isLoad ? 'No matches found ... &#128543; Try again' : ''}</h4>
+        <h4> {isLoad ? 'No matches found ... Try again' : ''}</h4>
       )}
     </ul>
   );

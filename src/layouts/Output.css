@@ -17,6 +17,12 @@
 
 .output__result span {
   font-weight: 700;
+  cursor: default;
+  user-select: none;
+}
+
+.output__result span:hover {
+  text-shadow: 2px 2px 5px #068801;
 }
 
 .output input {
@@ -25,4 +31,9 @@
   font-size: 1.1em;
   padding: 0.2em 0.5em;
   width: 250px;
+}
+
+.output__error {
+  font-weight: 700;
+  color: #9b0606;
 }

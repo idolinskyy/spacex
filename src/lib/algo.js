@@ -1,3 +1,13 @@
+/*
+	Алгоритм подбора ящиков для розмещения в грузовых отсеках
+
+	В отсортированном списке подбираются наиболее подходящие ящики,
+	после чего они удаляются из списка.
+	Для этого берется последний элемент списка (максимальный) и к нему
+	последовательно подбираются подходящие.
+	И так до исчерпания списка
+*/
+
 export const calculateCargoBays = (allBoxes = [], maxCapacity = 10) => {
   const cargoBays = [];
   let boxes = allBoxes.map((item) => +item).sort((left, rigth) => left - rigth);
@@ -5,8 +15,10 @@ export const calculateCargoBays = (allBoxes = [], maxCapacity = 10) => {
   if (!boxes.length) return [];
 
   if (boxes[boxes.length - 1] > maxCapacity) {
-    throw Error('One or more crates will not fit in the cargo hold!');
+    cargoBays.error = 'One or more boxes will not fit in the cargo hold!';
+    return cargoBays;
   }
+
   while (boxes.length) {
     const cargo = [boxes.pop()];
 
