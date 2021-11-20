@@ -1,3 +1,14 @@
+/*
+	Вывод размещения грузов в отсеках
+	Формат вывода:
+		Cargo 1 => [W1+..+Wn]
+		...
+		Cargo N => [W1+..+Wn]
+	
+	Аргументы:
+		allCargoBays - массив [[A1..An], .., [K1..Km]] грузов по отсеках
+*/
+
 export const displayCargos = (allCargoBays) => {
   const cargoBays = [...allCargoBays];
   if (cargoBays) {
