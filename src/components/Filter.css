@@ -1,10 +1,11 @@
 .filter {
   display: flex;
   border: 1px solid #000000;
-  width: 42vw;
+  flex-grow: 1;
   padding: 0.5em;
   border-radius: 1.5em;
   background-color: #ffffff;
+  margin-left: 0.3em;
 }
 
 .filter:hover {
