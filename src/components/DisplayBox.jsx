@@ -1,4 +1,4 @@
-import { convert16 } from '../lib/util';
+import { convert16, invert } from '../lib/util';
 
 import './DisplayBox.css';
 
@@ -8,9 +8,7 @@ export function DisplayBox(props) {
     (width * 7) % 256,
   )}${convert16((width * 13) % 256)}`;
 
-  const tColor = ((parseInt(bColor, 16) ^ 0xffffff) | 0x1000000)
-    .toString(16)
-    .substring(1);
+  const tColor = invert(bColor);
 
   return (
     <div

@@ -25,7 +25,7 @@
   user-select: none;
   margin-left: 1em;
   padding: 0.3em;
-  background-color: #caccc4;
+  background-color: #d1d685;
   min-width: 4em;
   border-radius: 1em;
   box-shadow: 0 0 15px #646830;
@@ -34,11 +34,11 @@
 .output input {
   outline: 0;
   outline-offset: 0;
-  border-radius: 1em;
+  border-radius: 0.4em;
   font-size: 1.1em;
   padding: 0.2em 1em;
   width: 250px;
-  box-shadow: 0 0 30px #220aad;
+  box-shadow: 0 0 30px #71a4e7;
 }
 
 .output input:hover {
@@ -54,18 +54,33 @@
   color: #9b0606;
 }
 
+.output p {
+  font-weight: 700;
+}
+
+.output__title {
+  display: inline-block;
+  padding: 0.3em 1em;
+  font-size: 1.4em;
+  background-color: #15a7cc;
+  border-radius: 0.5em;
+  cursor: pointer;
+  user-select: none;
+  box-shadow: 3px 3px 0 #2f0263;
+}
+
+.output__title:hover {
+  color: rgb(31, 4, 153);
+}
+
+.output__title:active {
+  box-shadow: none;
+}
+
 @media screen and (max-width: 352px) {
   .output__result span {
     display: block;
     margin: 10px auto;
     width: 100px;
   }
-}
-
-.output p {
-  font-weight: 700;
-}
-
-.output__display {
-  font-size: 1.4em;
 }

@@ -6,6 +6,7 @@ import './Output.css';
 
 export function Output(props) {
   const [boxes, setBoxes] = useState('');
+  const [hideDisplay, setHideDisplay] = useState(true);
 
   const { name, email } = props.company;
   const { cargoBays } = props;
@@ -13,6 +14,10 @@ export function Output(props) {
   useEffect(() => {
     setBoxes(props.company.boxes || '');
   }, [props.company.boxes]);
+
+  const click = (event) => {
+    setHideDisplay(!hideDisplay);
+  };
 
   return (
     <div className='output'>
@@ -34,8 +39,12 @@ export function Output(props) {
       />
       <p className='output__error'>{cargoBays?.error || ''}</p>
       <hr></hr>
-      <p className='output__display'>Placement of cargos</p>
-      <DisplayCargos cargoList={sort(cargoBays)}></DisplayCargos>
+      <p className='output__title' onClick={click}>
+        Placement of cargos
+      </p>
+      <DisplayCargos
+        cargoList={sort(cargoBays)}
+        hide={hideDisplay}></DisplayCargos>
     </div>
   );
 }
