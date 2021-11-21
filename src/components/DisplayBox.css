@@ -1,0 +1,8 @@
+.display-cargo__box {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  border: 1px solid #000000;
+  border-radius: 0.5em;
+  height: 80%;
+}

@@ -24,13 +24,13 @@ export const displayCargos = (allCargoBays) => {
       )
       .map(
         (item, index) =>
-          `Cargo ${index + 1} => [${item
+          `Cargo ${index + 1} [${item
             .reduce(
               (previousValue, currentValue) =>
                 previousValue + '+' + currentValue,
               '',
             )
-            .slice(1)}]\n`,
+            .slice(1)}], `,
       )
       .reduce(
         (previousValue, currentValue) => previousValue + currentValue,
@@ -40,3 +40,8 @@ export const displayCargos = (allCargoBays) => {
     return '';
   }
 };
+
+export function convert16(num) {
+  num = num.toString(16);
+  return '0'.repeat(Math.max(2 - num.length, 0)) + num;
+}

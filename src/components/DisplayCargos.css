@@ -1,0 +1,16 @@
+.display-cargos {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  min-height: 1em;
+  border: 2px solid #000000;
+  padding: 1em;
+  border-radius: 1em;
+  background-color: #dfdfdf;
+}
+
+@media screen and (max-width: 692px) {
+  .display-cargos {
+    display: none;
+  }
+}

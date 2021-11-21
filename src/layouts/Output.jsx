@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { DisplayCargos } from '../components/DisplayCargos';
 import { displayCargos } from '../lib/util';
 
 import './Output.css';
@@ -23,7 +24,7 @@ export function Output(props) {
       </a>
       <p className='output__result'>
         Number of required cargo bays{' '}
-        <span title={displayCargos(cargoBays)}>{cargoBays?.length || 0}</span>
+        <span tooltip={displayCargos(cargoBays)}>{cargoBays?.length || 0}</span>
       </p>
       <p className='output__caption'>Cargo boxes</p>
       <input
@@ -33,6 +34,8 @@ export function Output(props) {
         onInput={props.checkInput}
       />
       <p className='output__error'>{cargoBays?.error || ''}</p>
+      <hr></hr>
+      <DisplayCargos cargoList={cargoBays}></DisplayCargos>
     </div>
   );
 }

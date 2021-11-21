@@ -16,7 +16,10 @@
 
 export const calculateCargoBays = (allBoxes = [], maxCapacity = 10) => {
   const cargoBays = [];
-  let boxes = allBoxes.map((item) => +item).sort((left, rigth) => left - rigth);
+  let boxes = allBoxes
+    .map((item) => +item)
+    .filter((item) => !!item)
+    .sort((left, rigth) => left - rigth);
 
   if (!boxes.length) return [];
 

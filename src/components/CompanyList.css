@@ -1,13 +1,13 @@
 .company-list {
   list-style-type: none;
-  padding: 0 0.3em 0 1em;
+  padding: 0;
 }
 
 @media screen and (max-width: 952px) {
   .company-list {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    gap: 5%;
   }
 }
 
@@ -15,6 +15,5 @@
   .company-list {
     flex-wrap: nowrap;
     justify-content: flex-start;
-    flex-direction: column;
   }
 }
