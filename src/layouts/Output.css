@@ -30,14 +30,8 @@
   border-radius: 1em;
   box-shadow: 0 0 15px #646830;
 }
-/* 
-.output__result span:hover {
-  background-color: #646830;
-  color: #ffffff;
-} */
 
 .output input {
-  border: none;
   outline: 0;
   outline-offset: 0;
   border-radius: 1em;
@@ -58,4 +52,20 @@
 .output__error {
   font-weight: 700;
   color: #9b0606;
+}
+
+@media screen and (max-width: 352px) {
+  .output__result span {
+    display: block;
+    margin: 10px auto;
+    width: 100px;
+  }
+}
+
+.output p {
+  font-weight: 700;
+}
+
+.output__display {
+  font-size: 1.4em;
 }

@@ -9,39 +9,54 @@
 		allCargoBays - массив [[A1..An], .., [K1..Km]] грузов по отсеках
 */
 
-export const displayCargos = (allCargoBays) => {
-  const cargoBays = [...allCargoBays];
-  if (cargoBays) {
-    return cargoBays
-      .sort(
-        (left, rigth) =>
-          rigth.reduce(
-            (previousValue, currentValue) => previousValue + currentValue,
-          ) -
-          left.reduce(
-            (previousValue, currentValue) => previousValue + currentValue,
-          ),
-      )
-      .map(
-        (item, index) =>
-          `Cargo ${index + 1} [${item
-            .reduce(
-              (previousValue, currentValue) =>
-                previousValue + '+' + currentValue,
-              '',
-            )
-            .slice(1)}], `,
-      )
-      .reduce(
-        (previousValue, currentValue) => previousValue + currentValue,
-        '',
-      );
-  } else {
-    return '';
-  }
-};
+// export const displayCargos = (allCargoBays) => {
+//   const cargoBays = [...allCargoBays];
+//   if (cargoBays) {
+//     return cargoBays
+//       .sort(
+//         (left, rigth) =>
+//           rigth.reduce(
+//             (previousValue, currentValue) => previousValue + currentValue,
+//           ) -
+//           left.reduce(
+//             (previousValue, currentValue) => previousValue + currentValue,
+//           ),
+//       )
+//       .map(
+//         (item, index) =>
+//           `Cargo ${index + 1} [${item
+//             .reduce(
+//               (previousValue, currentValue) =>
+//                 previousValue + '+' + currentValue,
+//               '',
+//             )
+//             .slice(1)}], `,
+//       )
+//       .reduce(
+//         (previousValue, currentValue) => previousValue + currentValue,
+//         '',
+//       );
+//   } else {
+//     return '';
+//   }
+// };
 
 export function convert16(num) {
   num = num.toString(16);
   return '0'.repeat(Math.max(2 - num.length, 0)) + num;
+}
+
+export function sort(allCargoBays) {
+  const cargos = [...allCargoBays];
+  return cargos.sort(
+    (left, right) =>
+      right.reduce(
+        (previousValue, currentValue) => previousValue + currentValue,
+        0,
+      ) -
+      left.reduce(
+        (previousValue, currentValue) => previousValue + currentValue,
+        0,
+      ),
+  );
 }

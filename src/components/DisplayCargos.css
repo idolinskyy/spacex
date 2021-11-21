@@ -9,7 +9,7 @@
   background-color: #dfdfdf;
 }
 
-@media screen and (max-width: 692px) {
+@media screen and (max-width: 300px) {
   .display-cargos {
     display: none;
   }

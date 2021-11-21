@@ -13,7 +13,6 @@
 
 @media screen and (max-width: 364px) {
   .company-list {
-    flex-wrap: nowrap;
     justify-content: flex-start;
   }
 }

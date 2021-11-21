@@ -8,7 +8,6 @@
 
 @media screen and (max-width: 952px) {
   .side {
-    overflow-x: scroll;
     overflow: scroll;
   }
 }
