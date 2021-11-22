@@ -6,7 +6,7 @@ import './Output.css';
 
 export function Output(props) {
   const [boxes, setBoxes] = useState('');
-  const [hideDisplay, setHideDisplay] = useState(true);
+  const [hideDisplay, setHideDisplay] = useState(false);
 
   const { name, email } = props.company;
   const { cargoBays } = props;
@@ -39,12 +39,14 @@ export function Output(props) {
       />
       <p className='output__error'>{cargoBays?.error || ''}</p>
       <hr></hr>
-      <p className='output__title' onClick={click}>
+      <p
+        className={`output__title ${
+          !hideDisplay ? 'output__title--ckick' : ''
+        }`}
+        onClick={click}>
         Placement of cargos
       </p>
-      <DisplayCargos
-        cargoList={sort(cargoBays)}
-        hide={hideDisplay}></DisplayCargos>
+      <DisplayCargos cargoList={sort(cargoBays)} hide={hideDisplay} />
     </div>
   );
 }
