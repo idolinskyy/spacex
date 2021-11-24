@@ -60,6 +60,7 @@ export class Main extends Component {
         return result.json();
       })
       .then((data) => {
+        console.log(data);
         this.setState({
           list: data,
           allList: data,

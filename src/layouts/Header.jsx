@@ -13,10 +13,10 @@ export function Header(props) {
       <span className='header__logo'>Cargo Planner</span>
       <Filter changeFilter={changeFilter}></Filter>
       <div className='header__wrapper'>
-        <button className='header__button' onClick={loadClick}>
+        <button className='header__button load' onClick={loadClick}>
           Load
         </button>
-        <button className='header__button' onClick={saveClick}>
+        <button className='header__button save' onClick={saveClick}>
           Save
         </button>
       </div>
