@@ -5,8 +5,14 @@
   padding: 1em;
   overflow: scroll;
   overflow-x: hidden;
-  background: linear-gradient(to top, #55efcb 0%, #5bcaff 100%);
+  background: linear-gradient(to top, #6a8d92 0%, #80b192 100%);
 }
+
+.output__wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
 .output__company {
   margin: 0;
   font-weight: 700;
@@ -104,5 +110,19 @@
     display: block;
     margin: 10px auto;
     width: 100px;
+  }
+
+  .output__wrapper {
+    justify-content: center;
+    align-items: center;
+  }
+
+  .output__button {
+    margin: 10px auto;
+    display: block;
+  }
+
+  .output__caption {
+    margin-top: 0;
   }
 }

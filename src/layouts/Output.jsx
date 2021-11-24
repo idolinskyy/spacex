@@ -21,26 +21,28 @@ export function Output(props) {
 
   return (
     <div className='output'>
-      <h1 className='output__company'>
-        {name || 'Please select a company...'}
-      </h1>
-      <a href={`mailto:${email}`} className='output__mail'>
-        {email}
-      </a>
-      <p className='output__result'>
-        Number of required cargo bays{' '}
-        <button className='output__button' onClick={click}>
-          {cargoBays?.length || 0}
-        </button>
-      </p>
-      <p className='output__caption'>Cargo boxes</p>
-      <input
-        type='text'
-        value={boxes}
-        onChange={props.onChangeBoxes}
-        onInput={props.checkInput}
-      />
-      <p className='output__error'>{cargoBays?.error || ''}</p>
+      <div className='output__wrapper'>
+        <h1 className='output__company'>
+          {name || 'Please select a company...'}
+        </h1>
+        <a href={`mailto:${email}`} className='output__mail'>
+          {email}
+        </a>
+        <p className='output__result'>
+          Number of required cargo bays{' '}
+          <button className='output__button' onClick={click}>
+            {cargoBays?.length || 0}
+          </button>
+        </p>
+        <p className='output__caption'>Cargo boxes</p>
+        <input
+          type='text'
+          value={boxes}
+          onChange={props.onChangeBoxes}
+          onInput={props.checkInput}
+        />
+        <p className='output__error'>{cargoBays?.error || ''}</p>
+      </div>
       <hr></hr>
       <DisplayCargos cargoList={sort(cargoBays)} hide={hideDisplay} />
     </div>

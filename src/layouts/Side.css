@@ -1,13 +1,16 @@
 .side {
+  display: block;
   grid-area: side;
   overflow: scroll;
   overflow-x: hidden;
   padding: 0.3em;
   border: 1px solid #000000;
+  background-color: #a1e887;
 }
 
 @media screen and (max-width: 952px) {
   .side {
     overflow: scroll;
+    overflow-x: hidden;
   }
 }

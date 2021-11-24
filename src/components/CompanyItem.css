@@ -2,11 +2,12 @@
   margin-left: 0 0.5em;
   display: block;
   width: 100%;
-  background-clip: content-box;
+  background-color: #a1e887;
+  /* background-clip: content-box; */
 }
 
 .company-item:hover {
-  background: linear-gradient(to top, #b2e582 0%, #5bcaff 100%);
+  background: linear-gradient(to top, #f1f7ed 0%, #7ca982 100%);
 }
 
 .company-item__link {
@@ -22,15 +23,9 @@
     width: 45%;
     min-height: 2em;
   }
-  .company-item:nth-child(2n + 1) {
-    background-color: inherit;
-  }
-  .company-item:nth-child(2n) {
-    background-color: inherit;
-  }
 
   .company-item:hover {
-    background-color: #919191;
+    background-color: #7ca982;
   }
 }
 

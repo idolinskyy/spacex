@@ -124,16 +124,19 @@ export class Main extends Component {
             loadClick={this.loadFromJSON}
             saveClick={this.saveLocal}
             changeFilter={this.changeFilter}></Header>
-          <Side
-            list={list}
-            clickLink={this.clickLink}
-            isLoad={this.state.isLoad}></Side>
           {list.length ? (
-            <Output
-              company={this.state.currentCompany}
-              onChangeBoxes={this.changeBoxes}
-              checkInput={this.onCheckInput}
-              cargoBays={this.state.cargoBays}></Output>
+            <>
+              <Side
+                list={list}
+                clickLink={this.clickLink}
+                isLoad={this.state.isLoad}></Side>
+
+              <Output
+                company={this.state.currentCompany}
+                onChangeBoxes={this.changeBoxes}
+                checkInput={this.onCheckInput}
+                cargoBays={this.state.cargoBays}></Output>
+            </>
           ) : (
             <h3 className='main__no-data'>
               {!this.state.isLoad
