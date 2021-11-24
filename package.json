@@ -2,7 +2,7 @@
   "name": "spasex",
   "version": "0.1.0",
   "private": true,
-  "homepage1": "https://test.dolinskyy.xyz/spacex-g",
+  "homepage": "https://test.dolinskyy.xyz/spacex",
   "dependencies": {
     "@testing-library/jest-dom": "^5.15.0",
     "@testing-library/react": "^11.2.7",

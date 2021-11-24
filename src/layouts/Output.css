@@ -5,6 +5,7 @@
   padding: 1em;
   overflow: scroll;
   overflow-x: hidden;
+  background: linear-gradient(to top, #55efcb 0%, #5bcaff 100%);
 }
 .output__company {
   margin: 0;
@@ -14,22 +15,6 @@
 .output__mail {
   display: inline-block;
   margin-top: 0.5em;
-}
-
-.output__result span {
-  position: relative;
-  border: none;
-  display: inline-block;
-  text-align: center;
-  font-weight: 700;
-  cursor: default;
-  user-select: none;
-  margin-left: 1em;
-  padding: 0.3em;
-  background-color: #d1d685;
-  min-width: 4em;
-  border-radius: 1em;
-  box-shadow: 0 0 15px #646830;
 }
 
 .output input {
@@ -59,27 +44,59 @@
   font-weight: 700;
 }
 
-.output__title {
+.output__button {
+  text-decoration: none;
   display: inline-block;
   padding: 0.3em 1em;
-  font-size: 1.4em;
-  background-color: #15a7cc;
-  border-radius: 0.5em;
+  margin: 0 1.2em;
+  position: relative;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: none;
+  font-weight: 700;
+  font-size: 1.3em;
   cursor: pointer;
-  user-select: none;
-  box-shadow: 3px 3px 0 #2f0263;
+  width: 5em;
+  height: 2em;
 }
-
-.output__title:hover {
-  color: rgb(31, 4, 153);
+.output__button:before,
+.output__button:after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  box-sizing: border-box;
 }
-
-.output__title:active {
-  box-shadow: none;
+.output__button:before {
+  bottom: 0;
+  left: 0;
+  border-left: 1px solid white;
+  border-top: 1px solid white;
+  transition: 0s ease opacity 0.8s, 0.2s ease width 0.4s, 0.2s ease height 0.6s;
 }
-
-.output__title--ckick {
-  box-shadow: 3px 3px 10px #2f0263;
+.output__button:after {
+  top: 0;
+  right: 0;
+  border-right: 1px solid white;
+  border-bottom: 1px solid white;
+  transition: 0s ease opacity 0.4s, 0.2s ease width, 0.2s ease height 0.2s;
+}
+.output__button:hover:before,
+.output__button:hover:after {
+  height: 100%;
+  width: 100%;
+  opacity: 1;
+}
+.output__button:hover:before {
+  transition: 0s ease opacity 0s, 0.2s ease height, 0.2s ease width 0.2s;
+}
+.output__button:hover:after {
+  transition: 0s ease opacity 0.4s, 0.2s ease height 0.4s, 0.2s ease width 0.6s;
+}
+.output__button:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: #c00909;
 }
 
 @media screen and (max-width: 352px) {

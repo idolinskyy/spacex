@@ -5,6 +5,7 @@ import { Side } from './Side';
 import { calculateCargoBays } from '../lib/algo';
 
 import './Main.css';
+import { normalizeUrl } from '../lib/util';
 
 export class Main extends Component {
   state = {
@@ -14,6 +15,24 @@ export class Main extends Component {
     currentCompany: {},
     cargoBays: [],
   };
+
+  changeHash(list) {
+    const hash = window.location.hash ? window.location.hash.substr(1) : '';
+    const computedCompany = list.filter((item) => {
+      return normalizeUrl(item.name) === hash;
+    })[0];
+    if (computedCompany) {
+      this.setState((state, props) => ({
+        currentCompany: computedCompany,
+        cargoBays: calculateCargoBays(computedCompany.boxes?.split(',') || []),
+      }));
+    } else {
+      this.setState((state, props) => ({
+        currentCompany: state.list[0],
+        cargoBays: calculateCargoBays(state.list[0]?.boxes?.split(',') || []),
+      }));
+    }
+  }
 
   componentDidMount() {
     const data = JSON.parse(localStorage.getItem('spacex-data')) || [];
@@ -26,6 +45,12 @@ export class Main extends Component {
         cargoBays: calculateCargoBays(data[0]?.boxes?.split(',') || []),
       });
     }
+
+    this.changeHash(data);
+
+    window.addEventListener('hashchange', (event) => {
+      this.changeHash(this.state.allList);
+    });
   }
 
   loadFromJSON = () => {
@@ -51,15 +76,15 @@ export class Main extends Component {
   clickLink = (e) => {
     e.preventDefault();
 
-    const currCompany = this.state.list.filter((item, i) => {
+    const computedCompany = this.state.list.filter((item, i) => {
       return item.id === e.target.id;
     })[0];
 
     window.history.pushState({ path: e.target.href }, '', e.target.href);
 
     this.setState((state, props) => ({
-      currentCompany: currCompany,
-      cargoBays: calculateCargoBays(currCompany.boxes?.split(',') || []),
+      currentCompany: computedCompany,
+      cargoBays: calculateCargoBays(computedCompany.boxes?.split(',') || []),
     }));
   };
 
@@ -73,11 +98,11 @@ export class Main extends Component {
   };
 
   onResetBoxes = (event) => {
-    const currCompany = this.state.currentCompany;
-    currCompany.boxes = event.target.value;
+    const computedCompany = this.state.currentCompany;
+    computedCompany.boxes = event.target.value;
     this.setState((state, props) => ({
-      currentCompany: currCompany,
-      cargoBays: calculateCargoBays(currCompany.boxes.split(',')),
+      currentCompany: computedCompany,
+      cargoBays: calculateCargoBays(computedCompany.boxes.split(',')),
     }));
   };
 

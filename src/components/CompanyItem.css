@@ -1,19 +1,12 @@
 .company-item {
-  margin-left: 0.7em;
+  margin-left: 0 0.5em;
   display: block;
   width: 100%;
   background-clip: content-box;
 }
 
-.company-item:nth-child(2n + 1) {
-  background-color: #fff3f3;
-}
-.company-item:nth-child(2n) {
-  background-color: #f4f3ff;
-}
-
 .company-item:hover {
-  background-color: #919191;
+  background: linear-gradient(to top, #b2e582 0%, #5bcaff 100%);
 }
 
 .company-item__link {

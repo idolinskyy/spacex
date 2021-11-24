@@ -28,7 +28,10 @@ export function Output(props) {
         {email}
       </a>
       <p className='output__result'>
-        Number of required cargo bays <span>{cargoBays?.length || 0}</span>
+        Number of required cargo bays{' '}
+        <button className='output__button' onClick={click}>
+          {cargoBays?.length || 0}
+        </button>
       </p>
       <p className='output__caption'>Cargo boxes</p>
       <input
@@ -39,13 +42,6 @@ export function Output(props) {
       />
       <p className='output__error'>{cargoBays?.error || ''}</p>
       <hr></hr>
-      <p
-        className={`output__title ${
-          !hideDisplay ? 'output__title--ckick' : ''
-        }`}
-        onClick={click}>
-        Placement of cargos
-      </p>
       <DisplayCargos cargoList={sort(cargoBays)} hide={hideDisplay} />
     </div>
   );

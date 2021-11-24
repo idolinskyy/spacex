@@ -3,7 +3,7 @@ import { convert16, invert } from '../lib/util';
 import './DisplayBox.css';
 
 export function DisplayBox(props) {
-  const width = props.width * 10;
+  const width = Math.round(props.width * 10);
   const bColor = `${convert16((width * 17) % 256)}${convert16(
     (width * 7) % 256,
   )}${convert16((width * 13) % 256)}`;

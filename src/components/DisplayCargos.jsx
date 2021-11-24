@@ -11,7 +11,12 @@ export function DisplayCargos(props) {
       }`}>
       {cargoList?.length
         ? cargoList.map((item, index) => (
-            <DisplayCargoItem key={index} listBoxes={item} />
+            <div key={index} className='display-cargos__wrapper'>
+              <span key={index} className='display-cargos__index'>
+                {index + 1}
+              </span>
+              <DisplayCargoItem key={'-' + index} listBoxes={item} />
+            </div>
           ))
         : ''}
     </div>

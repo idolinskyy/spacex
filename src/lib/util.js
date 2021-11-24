@@ -20,3 +20,7 @@ export function sort(allCargoBays) {
       ),
   );
 }
+
+export const normalizeUrl = (company) => {
+  return company.replaceAll(/[& ]/g, '-').toLowerCase();
+};

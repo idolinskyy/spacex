@@ -1,3 +1,4 @@
+import { normalizeUrl } from '../lib/util';
 import './CompanyItem.css';
 
 export function CompanyItem(props) {
@@ -6,7 +7,7 @@ export function CompanyItem(props) {
     <li className='company-item'>
       <a
         id={id}
-        href={`${name.replaceAll(/[& ]/g, '-').toLowerCase()}`}
+        href={`#${normalizeUrl(name)}`}
         className='company-item__link'
         onClick={clickLink}>
         {name}
