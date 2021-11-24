@@ -9,13 +9,14 @@ import { normalizeUrl } from '../lib/util';
 
 export class Main extends Component {
   state = {
-    isLoad: false,
-    list: [],
-    allList: [],
-    currentCompany: {},
-    cargoBays: [],
+    isLoad: false, // Загрузка данных успешна?
+    list: [], // Текущий список компаний (например после фильтра)
+    allList: [], // Список всех загруженых компаний
+    currentCompany: {}, // Текущая компания для оттображения
+    cargoBays: [], // Список грузов в текущей компании
   };
 
+  // Изменяет состояние при смене хеша
   changeHash(list) {
     const hash = window.location.hash ? window.location.hash.substr(1) : '';
     const computedCompany = list.filter((item) => {
@@ -97,7 +98,7 @@ export class Main extends Component {
     });
   };
 
-  onResetBoxes = (event) => {
+  changeBoxes = (event) => {
     const computedCompany = this.state.currentCompany;
     computedCompany.boxes = event.target.value;
     this.setState((state, props) => ({
@@ -130,7 +131,7 @@ export class Main extends Component {
           {list.length ? (
             <Output
               company={this.state.currentCompany}
-              resetBoxes={this.onResetBoxes}
+              onChangeBoxes={this.changeBoxes}
               checkInput={this.onCheckInput}
               cargoBays={this.state.cargoBays}></Output>
           ) : (

@@ -1,3 +1,7 @@
+/*
+	Компонент записи компании в сайдбаре
+*/
+
 import { normalizeUrl } from '../lib/util';
 import './CompanyItem.css';
 

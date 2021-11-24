@@ -1,3 +1,7 @@
+/*
+	Компонент отображения отдельного ящика
+*/
+
 import { convert16, invert } from '../lib/util';
 
 import './DisplayBox.css';

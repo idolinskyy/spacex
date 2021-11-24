@@ -1,3 +1,7 @@
+/*
+	Компонент отображения для всех заполненых отсеков
+*/
+
 import { DisplayCargoItem } from './DisplayCargoItem';
 import './DisplayCargos.css';
 

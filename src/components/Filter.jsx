@@ -1,3 +1,7 @@
+/*
+	Компонент для фильтра компаний в сайдбаре
+*/
+
 import './Filter.css';
 
 export function Filter(props) {

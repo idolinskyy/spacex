@@ -37,7 +37,7 @@ export function Output(props) {
       <input
         type='text'
         value={boxes}
-        onChange={props.resetBoxes}
+        onChange={props.onChangeBoxes}
         onInput={props.checkInput}
       />
       <p className='output__error'>{cargoBays?.error || ''}</p>

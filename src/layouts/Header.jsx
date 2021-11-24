@@ -1,3 +1,7 @@
+/*
+	Компонент для размещения фильтра, кнопок управления
+*/
+
 import React from 'react';
 import { Filter } from '../components/Filter';
 import './Header.css';

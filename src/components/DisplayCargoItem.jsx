@@ -1,3 +1,7 @@
+/*
+	Компонент отображения грузового отсека с ящиками
+*/
+
 import { DisplayBox } from './DisplayBox';
 import './DisplayCargoItem.css';
 

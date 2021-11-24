@@ -1,3 +1,7 @@
+/*
+	Компонент списка записей компаний в сайдбаре
+*/
+
 import { CompanyItem } from './CompanyItem';
 import './CompanyList.css';
 
