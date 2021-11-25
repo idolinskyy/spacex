@@ -10,7 +10,44 @@
   padding-left: 2em;
 }
 
-.header__logo {
+.header__button {
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  width: 10em;
+  height: 2.5em;
+  vertical-align: middle;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: 0 -1px 1px #777;
+  color: #fff;
+  outline: none;
+  border-radius: 5px;
+}
+
+.header__button.load {
+  border: 2px solid #82a6b1;
+  box-shadow: 0 0 0 60px rgba(0, 0, 0, 0) inset, 0.1em 0.1em 0.2em #84b2c0;
+  background: linear-gradient(#76877d, #726953 48%, #5b3000 52%, #66462c);
+}
+
+.header__button.save {
+  border: 2px solid #83781b;
+  box-shadow: 0 0 0 60px rgba(0, 0, 0, 0) inset, 0.1em 0.1em 0.2em #ad9d07;
+  background: linear-gradient(#95b46a, #709255 48%, #172815 52%, #3e5622);
+}
+
+.header__button:hover {
+  box-shadow: 0.1em 0.1em 0.3em #000000;
+}
+
+.header__button:active {
+  top: 0.1em;
+  left: 0.1em;
+  box-shadow: 0 0 0 60px rgba(0, 0, 0, 0.05) inset;
+}
+
+main .header__logo {
   font-size: 1.5em;
   font-weight: bold;
   color: #a1e887;
