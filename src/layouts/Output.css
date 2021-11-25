@@ -20,7 +20,6 @@
 
 .output__mail {
   display: inline-block;
-  margin-top: 0.5em;
 }
 
 .output input {
@@ -48,6 +47,10 @@
 
 .output p {
   font-weight: 700;
+}
+
+.output hr {
+  margin: 1em 0;
 }
 
 .output__button {
@@ -103,6 +106,10 @@
 .output__button:hover {
   background: rgba(255, 255, 255, 0.2);
   color: #c00909;
+}
+
+.output__wrapper > * {
+  margin-top: 0.5em;
 }
 
 @media screen and (max-width: 352px) {

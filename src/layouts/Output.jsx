@@ -31,7 +31,7 @@ export function Output(props) {
         <p className='output__result'>
           Number of required cargo bays{' '}
           <button className='output__button' onClick={click}>
-            {cargoBays?.length || 0}
+            {name ? cargoBays?.length || 0 : 0}
           </button>
         </p>
         <p className='output__caption'>Cargo boxes</p>
@@ -44,7 +44,10 @@ export function Output(props) {
         <p className='output__error'>{cargoBays?.error || ''}</p>
       </div>
       <hr></hr>
-      <DisplayCargos cargoList={sort(cargoBays)} hide={hideDisplay} />
+      <DisplayCargos
+        cargoList={name ? sort(cargoBays) : []}
+        hide={hideDisplay}
+      />
     </div>
   );
 }

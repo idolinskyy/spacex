@@ -1,4 +1,5 @@
 .main {
+  position: relative;
   display: grid;
   grid-template-rows: 4em calc(100vh - 4em);
   grid-template-columns: 1fr 3fr;

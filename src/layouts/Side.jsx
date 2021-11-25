@@ -4,13 +4,10 @@ import './Side.css';
 
 export class Side extends Component {
   render() {
-    const { list, clickLink, isLoad } = this.props;
+    const { list, clickLink } = this.props;
     return (
       <aside className='side'>
-        <CompanyList
-          list={list}
-          clickLink={clickLink}
-          isLoad={isLoad}></CompanyList>
+        <CompanyList list={list} clickLink={clickLink}></CompanyList>
       </aside>
     );
   }

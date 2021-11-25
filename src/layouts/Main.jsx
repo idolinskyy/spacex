@@ -3,9 +3,9 @@ import { Header } from './Header';
 import { Output } from './Output';
 import { Side } from './Side';
 import { calculateCargoBays } from '../lib/algo';
-
-import './Main.css';
 import { normalizeUrl } from '../lib/util';
+import { Modal } from '../components/Modal';
+import './Main.css';
 
 export class Main extends Component {
   state = {
@@ -137,12 +137,10 @@ export class Main extends Component {
                 checkInput={this.onCheckInput}
                 cargoBays={this.state.cargoBays}></Output>
             </>
+          ) : !this.state.isLoad ? (
+            <Modal text="Local data not found... Please click 'Load' button to load data from server." />
           ) : (
-            <h3 className='main__no-data'>
-              {!this.state.isLoad
-                ? "Local data not found ...Please click 'Load' to load data from server."
-                : ''}
-            </h3>
+            <h3>No matches found ... Try again</h3>
           )}
         </main>
         <div className='error-info'>Maybe we should not?</div>
