@@ -112,7 +112,7 @@
   margin-top: 0.5em;
 }
 
-@media screen and (max-width: 352px) {
+@media screen and (max-width: 417px) {
   .output__result span {
     display: block;
     margin: 10px auto;
