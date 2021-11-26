@@ -41,7 +41,7 @@
   box-shadow: 0 0 0 60px rgba(0, 0, 0, 0.05) inset;
 }
 
-@media screen and (max-width: 368px) {
+@media screen and (max-width: 373px) {
   .button {
     width: 6em;
     height: auto;
